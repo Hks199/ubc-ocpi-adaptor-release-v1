@@ -112,7 +112,7 @@ export default class Utils {
     public static getUniqueId(domain?: BecknDomain): string {
         return GLOBAL_VARS.EV_CHARGING_UBC_UNIQUE_ID;
     }
-
+  
 
     public static getBPPContext(params: {
         action: BecknAction,

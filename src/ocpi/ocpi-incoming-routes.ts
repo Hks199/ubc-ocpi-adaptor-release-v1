@@ -147,7 +147,7 @@ async function handleRequest<T>(
 // - GET /ocpi/2.2.1
 router.get(
     '/versions',
-    ocpiAuth,
+    // ocpiAuth,
     async (req: Request, res: Response, next: NextFunction) =>
         handleRequest(
             req,
@@ -161,7 +161,7 @@ router.get(
 // Version details for 2.2.1 – base URL of this EMSP interface
 router.get(
     '/versions/2.2.1/details',
-    ocpiAuth,
+    // ocpiAuth,
     async (req: Request, res: Response, next: NextFunction) =>
         handleRequest(
             req,
@@ -174,7 +174,7 @@ router.get(
 
 
 // Credentials endpoints (per OCPI 2.2.1, EMSP receiver):
-// Under /ocpi/2.2.1/credentials
+// Under /ocpi/2.2.1/credentials  
 router.post(
     '/2.2.1/credentials',
     ocpiAuth,

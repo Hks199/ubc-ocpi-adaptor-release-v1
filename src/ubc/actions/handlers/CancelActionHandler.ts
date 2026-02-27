@@ -22,7 +22,8 @@ export default class CancelActionHandler {
 
             // TODO: Implement cancel action logic
             return UBCResponseService.ack();
-        } catch (error: any) {
+        }
+        catch (error: any) {
             logger.error('Error handling cancel action', error);
             return UBCResponseService.nack();
         }

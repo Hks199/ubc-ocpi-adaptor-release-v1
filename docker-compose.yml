@@ -1,3 +1,5 @@
+# version: "3.9"
+
 services:
   app:
     build:
@@ -14,7 +16,7 @@ services:
       - DATABASE_URL=${DATABASE_URL}
       - JWT_SECRET=${JWT_SECRET:-your-secret-key-change-in-production-min-32-characters}
       - JWT_EXPIRES_IN=${JWT_EXPIRES_IN:-24h}
-      - OCPI_HOST=${OCPI_HOST:-https://nearly-boss-pheasant.ngrok-free.app}
+      - OCPI_HOST=${OCPI_HOST:-http://ubc-ocpi-adaptor:6001}
       - CDS_BASE_URL=${CDS_BASE_URL:-https://cds.example.com}
       - CDS_API_KEY=${CDS_API_KEY:-your-cds-api-key}
       - EV_CHARGING_UBC_BPP_ID=${EV_CHARGING_UBC_BPP_ID:-pulseenergy-ubc-local-bpp}
@@ -36,6 +38,7 @@ services:
       start_period: 40s
     networks:
       - ubc-network
+      - ocpi-net   # 👈 ADD THIS
 
   postgres:
     image: postgres:16-alpine
@@ -65,3 +68,5 @@ networks:
   ubc-network:
     driver: bridge
 
+  ocpi-net:
+    external: true   # 👈 VERY IMPORTANT
